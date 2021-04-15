@@ -1,0 +1,120 @@
+on break:
+	add 1 to {blocksmined::%uuid of player%}
+	add 1 to {blocksminedfortokens::%uuid of player%}
+	if {blocksminedfortokens::%uuid of player%} is 1000:
+		set {blocksminedfortokens::%uuid of player%} to 0
+		set {tokenrand::%uuid of player%} to a random number between 1 and 100
+		if {tokenrand::%uuid of player%} is between 1 and 25:
+			send "&bYou Got 1 &3Token!!" to player
+			add 1 to {tokens::%uuid of player%}
+		else:
+			send "&cYou Didnt Get A Token This Time :(" to player
+			cancel event
+command /blocksmined:
+	trigger:
+		send "&4Phantasy &3Box &m->&r &6You Have Mined %{blocksmined::%uuid of player%}%" to player
+command /resetblocks:
+	trigger:
+		set {blocksminedfortokens::%uuid of player%} to 0
+		set {blocksmined::%uuid of player%} to 0
+command /tokenrand:
+	permission: op
+	trigger:
+		set {tokenrand::%uuid of player%} to a random number between 1 and 100
+		if {tokenrand::%uuid of player%} is between 1 and 25:
+			send "&bYou Got 1 &3Token!!" to player
+			add 1 to {tokens::%uuid of player%}
+		else:
+			send "&cYou Didnt Get A Token This Time :(" to player
+			
+command /tokens:
+	trigger:
+		send "&4Phantasy &3Box &m->&r &6You Have %{tokens::%uuid of player%}%" to player
+command /settokens <number> :
+	permission: op
+	trigger:
+		set {tokens::%uuid of player%} to arg-1
+		send "&4Phantasy &3Box &m->&r &9Set Your &9Tokens To &3%{tokens::%uuid of player%}% &9Tokens" to player
+
+
+command /tokenshop :
+	trigger:
+		open virtual chest inventory with size 3 named "&9&lToken Shop" to player
+		format gui slot 0 of player with gray stained glass pane named " "
+		format gui slot 1 of player with gray stained glass pane named " "
+		format gui slot 2 of player with gray stained glass pane named " "
+		format gui slot 3 of player with gray stained glass pane named " "
+		format gui slot 4 of player with gray stained glass pane named " "
+		format gui slot 5 of player with gray stained glass pane named " "
+		format gui slot 6 of player with gray stained glass pane named " "
+		format gui slot 7 of player with gray stained glass pane named " "
+		format gui slot 8 of player with gray stained glass pane named " "
+		format gui slot 9 of player with gray stained glass pane named " "
+		format gui slot 10 of player with paper named "&6&lRanks" to run:
+			open virtual chest inventory with size 5 named "&6&lRanks" to player
+			format gui slot 0 of player with gray stained glass pane named " "
+			format gui slot 1 of player with gray stained glass pane named " "
+			format gui slot 2 of player with gray stained glass pane named " "
+			format gui slot 3 of player with gray stained glass pane named " "
+			format gui slot 4 of player with gray stained glass pane named " "
+			format gui slot 5 of player with gray stained glass pane named " "
+			format gui slot 6 of player with gray stained glass pane named " "
+			format gui slot 7 of player with gray stained glass pane named " "
+			format gui slot 8 of player with gray stained glass pane named " "
+			format gui slot 9 of player with gray stained glass pane named " "
+			format gui slot 10 of player with gray stained glass pane named " "
+			format gui slot 11 of player with gray stained glass pane named " "
+			format gui slot 12 of player with gray stained glass pane named " "
+			format gui slot 13 of player with gray stained glass pane named " "
+			format gui slot 14 of player with gray stained glass pane named " "
+			format gui slot 15 of player with gray stained glass pane named " "
+			format gui slot 16 of player with gray stained glass pane named " "
+			format gui slot 17 of player with gray stained glass pane named " "
+			format gui slot 18 of player with gray stained glass pane named " "
+			format gui slot 19 of player with gray stained glass pane named " "
+			format gui slot 20 of player with gray stained glass pane named " "
+			format gui slot 21 of player with gray stained glass pane named " "
+			format gui slot 23 of player with gray stained glass pane named " "
+			format gui slot 24 of player with gray stained glass pane named " "
+			format gui slot 25 of player with gray stained glass pane named " "
+			format gui slot 26 of player with gray stained glass pane named " "
+			format gui slot 27 of player with gray stained glass pane named " "
+			format gui slot 28 of player with gray stained glass pane named " "
+			format gui slot 29 of player with gray stained glass pane named " "
+			format gui slot 30 of player with gray stained glass pane named " "  
+			format gui slot 31 of player with gray stained glass pane named " " 
+			format gui slot 32 of player with gray stained glass pane named " " 
+			format gui slot 33 of player with gray stained glass pane named " " 
+			format gui slot 34 of player with gray stained glass pane named " " 
+			format gui slot 35 of player with gray stained glass pane named " " 
+			format gui slot 36 of player with gray stained glass pane named " " 
+			format gui slot 37 of player with gray stained glass pane named " " 
+			format gui slot 38 of player with gray stained glass pane named " " 
+			format gui slot 39 of player with gray stained glass pane named " " 
+			format gui slot 40 of player with gray stained glass pane named " " 
+			format gui slot 41 of player with gray stained glass pane named " " 
+			format gui slot 42 of player with gray stained glass pane named " " 
+			format gui slot 43 of player with gray stained glass pane named " " 
+			format gui slot 44 of player with gray stained glass pane named " " 
+			format gui slot 22 of player with paper named "&b&l&7[&aVip&6+&7] &5Rank Paper" to run:
+				if {tokens::%uuid of player%} is greater than 5000:
+					remove 5000 from {tokens::%uuid of player%}
+					give paper named "&b&l&7[&aVip&6+&7] &5Rank Paper" to player
+				else:
+					send "&bSorry &3%player% &bBut You Dont Have Enogth &3Tokens" to player
+		format gui slot 11 of player with gray stained glass pane named " "
+		format gui slot 12 of player with gray stained glass pane named " "
+		format gui slot 13 of player with gray stained glass pane named " "
+		format gui slot 14 of player with gray stained glass pane named " "
+		format gui slot 15 of player with gray stained glass pane named " "
+		format gui slot 16 of player with gray stained glass pane named " "
+		format gui slot 17 of player with gray stained glass pane named " "
+		format gui slot 18 of player with gray stained glass pane named " "
+		format gui slot 19 of player with gray stained glass pane named " "
+		format gui slot 20 of player with gray stained glass pane named " "
+		format gui slot 21 of player with gray stained glass pane named " "
+		format gui slot 22 of player with gray stained glass pane named " "
+		format gui slot 23 of player with gray stained glass pane named " "
+		format gui slot 24 of player with gray stained glass pane named " "
+		format gui slot 25 of player with gray stained glass pane named " "
+		format gui slot 26 of player with gray stained glass pane named " "
