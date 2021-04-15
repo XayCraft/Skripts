@@ -1,0 +1,18 @@
+options:
+    perm: rename
+    no-perm: &3Insufficient Permissions
+    pre: &3[Rename]
+
+command /rename [<text>]:
+    permission: {@perm}
+    permission message: "{@no-perm}"
+    trigger:
+        if arg-1 is set:
+            if player's tool is not air:
+                set name of player's tool to "%colored arg-1%"
+                send "{@pre} &7You have set the name of your tool to %colored arg-1%"
+            else:
+                send "{@pre} &7Sorry but you have to hold an item"
+        else:
+            send "{@pre} &7Please provide a name"
+	
