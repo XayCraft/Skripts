@@ -1,0 +1,84 @@
+on join:
+    while 1 is 1:
+        set title of player's scoreboard to "&d&lExo&a&lSpace&d&lNet&a&lwork"
+        set line 14 of player's scoreboard to "&d&lName >> &r&d%player%"
+        set line 13 of player's scoreboard to "&7"
+        set line 12 of player's scoreboard to "&a&lBalance >> %{bal::%uuid of player%}%&r&a$"
+        set line 11 of player's scoreboard to "&7"
+        set line 10 of player's scoreboard to "&d&lCrystals >> %{crystals::%uuid of player%}%&r&d✦"
+        set line 9 of player's scoreboard to "&7"
+        set line 8 of player's scoreboard to "&a&lServer:"
+        set line 7 of player's scoreboard to "&7"
+        set line 6 of player's scoreboard to "&a&lServer:&d&lE&a&lx&d&lo&a&ls&d&lp&a&la&d&lc&a&le"
+        set line 5 of player's scoreboard to "&7"
+        set line 4 of player's scoreboard to "&d&lTPS >> &7&l%tps%"
+        set line 3 of player's scoreboard to "&7"
+        set line 2 of player's scoreboard to "&a&lPing >> &a&l%player's ping% &d&lMS"
+        wait 3 seconds
+April 8, 2021
+
+XayCraft — 04/08/2021
+hey when you get back can you give me the warn skript?
+
+canada — 04/08/2021
+why?
+
+XayCraft — 04/08/2021
+So I can use it uWu
+[8:14 AM]
+why else xD
+
+canada — 04/08/2021
+ok ill send it later i gtg rn
+
+canada — 04/08/2021
+command /warn <player>:
+    permission: op
+    permission message: &CYou do not have permission do execute this command.
+    usage: /warn <player>
+    trigger:
+        add 1 to {warns.%arg-1%}
+        send "&cYou have been warned" to arg-1
+        if {warns.%arg-1%} is equal to 2:
+            execute command "kick %arg-1% &bYou were warned too many times."
+            stop trigger
+        if {warns.%arg-1%} is equal to 3:
+            execute command "tempban %arg-1% 1h &bYou were warned too many times."
+            stop trigger
+        if {warns.%arg-1%} is equal to 4:
+            execute command "tempban %arg-1% 12h &bYou were warned too many times."
+            stop trigger
+        if {warns.%arg-1%} is equal to 5:
+            execute command "ban %arg-1% &bYou were warned too many times."
+            set {warns.%arg-1%} to 0
+            stop trigger
+        
+command /warns <player>:
+    permission: op
+    permission message: &CYou do not have permission do execute this command.
+    usage: /warns <player>
+    trigger:
+        if {warns.%arg-1%} is not set:
+            message "%arg-1% has 0 warns"
+        else:
+            message "%arg-1% has %{warns.%arg-1%}%"
+            
+command /removewarns <player> [<number>]:
+    permission: op
+    permission message: &CYou do not have permission do execute this command.
+    usage: /removewarns <player> [<number>]
+    trigger:
+        if arg-2 is not set:
+            set {warns.%arg-1%} to 0
+            message "Removed all warns from %arg-1%"
+        else:
+            if {warns.%arg-1%} is not set:
+                set {warns.%arg-1%} to 0
+                message "Removed %arg-2% warns from %arg-1%"
+                stop trigger
+            if arg-2 is less than {warns.%arg-1%}:
+                remove arg-2 from {warns.%arg-1%}
+                message "Removed %arg-2% warns from %arg-1%"
+            else:
+                set {warns.%arg-1%} to 0
+                message "Removed %arg-2% warns from %arg-1%"
