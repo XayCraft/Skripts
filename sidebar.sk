@@ -1,0 +1,16 @@
+on join:
+    while player is online:
+        set title of player's scoreboard to "&4&lPhantasy &3&lBox"
+        set line 15 of player's scoreboard to "&5&lRank"
+        set line 14 of player's scoreboard to "%player's prefix% &a&l%player%"
+        set line 13 of player's scoreboard to "&7"
+        set line 12 of player's scoreboard to "&6&lTokens"
+        set line 11 of player's scoreboard to "&9&l%{tokens::%uuid of player%}% &3&lTokens"
+        set line 10 of player's scoreboard to "&7"
+        set line 9 of player's scoreboard to "&2&lPlayers"
+        set line 8 of player's scoreboard to "&3&l%amount of all players%"
+        set line 4 of player's scoreboard to "&7"
+        set line 3 of player's scoreboard to  "&d&lTPS"
+        set line 2 of player's scoreboard to  "&6&l%tps%"
+        set line 1 of player's scoreboard to "&7"
+        wait 3 seconds
