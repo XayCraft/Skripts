@@ -1,0 +1,6 @@
+command /plugins:
+ aliases: /pl, /?, /bukkit:?, /bukkit:pl, /bukkit:me, /bukkit:plugins, /ver, /version, /about, /icanhasbukkit, /bukkit:ver, /bukkit:version, /bukkit:about, /bukkit:help
+permission:op
+	trigger:
+		if player has permission "op":
+			make the player run command "/bukkit:pl"
