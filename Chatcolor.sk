@@ -1,0 +1,85 @@
+options:
+    c: {chatcolor.%player%}
+    n: {name.%player%}
+ 
+on join:
+    if {chatcolor.%player%} is not set:
+        set {chatcolor.%player%} to "&8"
+    if {name.%player%} is not set:
+        set {name.%player%} to "&7"
+       
+on chat:
+    cancel event
+    broadcast "%{name.%player%}%%player's display name%: %{chatcolor.%player%}%%message%"
+   
+command /chatcolor [<text>]:
+    aliases: /c
+    trigger:
+        if arg-1 is not set:
+            send "&8&l[&6&lColor&8&l] &6/color &0Black, &1Blue, &2DarkGreen, &3DarkAqua, &4DarkRed, &5DarkPurple, &6Gold, &7Gray, &8DarkGray, &9Blue, &aGreen, &bAqua, &cRed, &dLightPurple, &eYellow, &fWhite, &lBold&r, &oItalic&r, &nUnderline&r, &mStrike&r, &kMagic &r(Magic)" to player
+            stop
+        set {_check} to "%{@c}%"
+        set {@c} to "" if arg-1 is "Clear", "Reset" or "Default"
+        set {@c} to "&0" if arg-1 is "Black" or "&0"
+        set {@c} to "&1" if arg-1 is "DarkBlue" or "&1"
+        set {@c} to "&2" if arg-1 is "DarkGreen" or "&2"
+        set {@c} to "&3" if arg-1 is "DarkAqua" or "&3"
+        set {@c} to "&4" if arg-1 is "DarkRed" or "&4"
+        set {@c} to "&5" if arg-1 is "DarkPurple" or "&5"
+        set {@c} to "&6" if arg-1 is "Gold" or "&6"
+        set {@c} to "&7" if arg-1 is "Gray" or "&7"
+        set {@c} to "&8" if arg-1 is "DarkGray" or "&8"
+        set {@c} to "&9" if arg-1 is "Blue" or "&9"
+        set {@c} to "&a" if arg-1 is "Green" or "&a"
+        set {@c} to "&b" if arg-1 is "Aqua" or "&b"
+        set {@c} to "&c" if arg-1 is "Red" or "&c"
+        set {@c} to "&d" if arg-1 is "LightPurple" or "&d"
+        set {@c} to "&e" if arg-1 is "Yellow" or "&e"
+        set {@c} to "&f" if arg-1 is "White" or "&f"
+        set {@c} to "%{@c}%&l" if arg-1 is "Bold" or "&b"
+        set {@c} to "%{@c}%&o" if arg-1 is "Italics" or "&o"
+        set {@c} to "%{@c}%&n" if arg-1 is "Underline" or "&n"
+        set {@c} to "%{@c}%&m" if arg-1 is "Strike" or "&m"
+        set {@c} to "%{@c}%&k" if arg-1 is "Magic" or "&k"
+        replace all "&l" in {@c} with "" if {@c} contains "&l&l"
+        replace all "&o" in {@c} with "" if {@c} contains "&o&o"
+        replace all "&n" in {@c} with "" if {@c} contains "&n&n"
+        replace all "&m" in {@c} with "" if {@c} contains "&m&m"
+        replace all "&k" in {@c} with "" if {@c} contains "&k&k"
+        send "&8&l[&6&lColor&8&l] &cError. Invalid color!" to player if {_check} is "%{@c}%"
+
+command /name [<text>]:
+    aliases: /n
+    trigger:
+        if arg-1 is not set:
+            send "&8&l[&6&lColor&8&l] &6/color &0Black, &1Blue, &2DarkGreen, &3DarkAqua, &4DarkRed, &5DarkPurple, &6Gold, &7Gray, &8DarkGray, &9Blue, &aGreen, &bAqua, &cRed, &dLightPurple, &eYellow, &fWhite, &lBold&r, &oItalic&r, &nUnderline&r, &mStrike&r, &kMagic &r(Magic)" to player
+            stop
+        set {_check} to "%{@n}%"
+        set {@n} to "" if arg-1 is "Clear", "Reset" or "Default"
+        set {@n} to "&0" if arg-1 is "Black" or "&0"
+        set {@n} to "&1" if arg-1 is "DarkBlue" or "&1"
+        set {@n} to "&2" if arg-1 is "DarkGreen" or "&2"
+        set {@n} to "&3" if arg-1 is "DarkAqua" or "&3"
+        set {@n} to "&4" if arg-1 is "DarkRed" or "&4"
+        set {@n} to "&5" if arg-1 is "DarkPurple" or "&5"
+        set {@n} to "&6" if arg-1 is "Gold" or "&6"
+        set {@n} to "&7" if arg-1 is "Gray" or "&7"
+        set {@n} to "&8" if arg-1 is "DarkGray" or "&8"
+        set {@n} to "&9" if arg-1 is "Blue" or "&9"
+        set {@n} to "&a" if arg-1 is "Green" or "&a"
+        set {@n} to "&b" if arg-1 is "Aqua" or "&b"
+        set {@n} to "&c" if arg-1 is "Red" or "&c"
+        set {@n} to "&d" if arg-1 is "LightPurple" or "&d"
+        set {@n} to "&e" if arg-1 is "Yellow" or "&e"
+        set {@n} to "&f" if arg-1 is "White" or "&f"
+        set {@n} to "%{@n}%&l" if arg-1 is "Bold" or "&b"
+        set {@n} to "%{@n}%&o" if arg-1 is "Italics" or "&o"
+        set {@n} to "%{@n}%&n" if arg-1 is "Underline" or "&n"
+        set {@n} to "%{@n}%&m" if arg-1 is "Strike" or "&m"
+        set {@n} to "%{@n}%&k" if arg-1 is "Magic" or "&k"
+        replace all "&l" in {@n} with "" if {@n} contains "&l&l"
+        replace all "&o" in {@n} with "" if {@n} contains "&o&o"
+        replace all "&n" in {@n} with "" if {@n} contains "&n&n"
+        replace all "&m" in {@n} with "" if {@n} contains "&m&m"
+        replace all "&k" in {@n} with "" if {@n} contains "&k&k"
+        send "&8&l[&6&lColor&8&l] &cError. Invalid color!" to player if {_check} is "%{@n}%"
