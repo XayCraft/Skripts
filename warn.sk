@@ -1,37 +1,3 @@
-on join:
-    while 1 is 1:
-        set title of player's scoreboard to "&d&lExo&a&lSpace&d&lNet&a&lwork"
-        set line 14 of player's scoreboard to "&d&lName >> &r&d%player%"
-        set line 13 of player's scoreboard to "&7"
-        set line 12 of player's scoreboard to "&a&lBalance >> %{bal::%uuid of player%}%&r&a$"
-        set line 11 of player's scoreboard to "&7"
-        set line 10 of player's scoreboard to "&d&lCrystals >> %{crystals::%uuid of player%}%&r&d✦"
-        set line 9 of player's scoreboard to "&7"
-        set line 8 of player's scoreboard to "&a&lServer:"
-        set line 7 of player's scoreboard to "&7"
-        set line 6 of player's scoreboard to "&a&lServer:&d&lE&a&lx&d&lo&a&ls&d&lp&a&la&d&lc&a&le"
-        set line 5 of player's scoreboard to "&7"
-        set line 4 of player's scoreboard to "&d&lTPS >> &7&l%tps%"
-        set line 3 of player's scoreboard to "&7"
-        set line 2 of player's scoreboard to "&a&lPing >> &a&l%player's ping% &d&lMS"
-        wait 3 seconds
-April 8, 2021
-
-XayCraft — 04/08/2021
-hey when you get back can you give me the warn skript?
-
-canada — 04/08/2021
-why?
-
-XayCraft — 04/08/2021
-So I can use it uWu
-[8:14 AM]
-why else xD
-
-canada — 04/08/2021
-ok ill send it later i gtg rn
-
-canada — 04/08/2021
 command /warn <player>:
     permission: op
     permission message: &CYou do not have permission do execute this command.
